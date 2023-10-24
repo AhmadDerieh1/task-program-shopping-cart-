@@ -70,8 +70,8 @@ def signup():
         db.session.add(new_user)
         db.session.commit()
 
-        return {'message': 'User registered successfully'}, 201
-
+        return redirect(url_for('login'))  # Redirect to login route after successful registration
+        # return {'message': 'User registered successfully'}, 201
     except Exception as e:
         db.session.rollback()
         print(f"Error: {str(e)}")
